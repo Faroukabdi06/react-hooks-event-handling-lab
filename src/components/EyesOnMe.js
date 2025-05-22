@@ -1,20 +1,27 @@
 // Code EyesOnMe Component Here
 import React from "react";
 
-function EyesOnMe(){
-    function focus(event){
-       console.log(event)
-       if(event.type==='focus'){
-        console.log('Good!')
-       }else{
-         console.log("Hey! Eyes on me!")
-       }
-
+function EyesOnMe() {
+  function handleFocusBlur(event) {
+    switch (event.type) {
+      case "focus":
+        console.log("Good!");
+        break;
+      case "blur":
+        console.log("Hey! Eyes on me!");
+        break;
+      default:
+        break;
     }
-    return(
-        <div>
-            <button onFocus={focus} onBlur={focus}>Eyes on me</button>
-        </div>
-    )
+  }
+
+  return (
+    <div>
+      <button onFocus={handleFocusBlur} onBlur={handleFocusBlur}>
+        Eyes on me
+      </button>
+    </div>
+  );
 }
-export default EyesOnMe
+
+export default EyesOnMe;
